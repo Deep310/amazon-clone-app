@@ -1,16 +1,18 @@
 import React from 'react';
 import CurrencyFormat from 'react-currency-format';
+import { getBasketTotal } from './reducer';
 import { useStateValue } from './StateProvider';
 import './Subtotal.css';
 
 function Subtotal() {
 	const [{ basket }, dispatch] = useStateValue();
 
-	let value = 0;
-	var i;
-	for (i = 0; i < basket.length; i++) {
-		value = value + basket[i].price;
-	}
+	// alternative way of counting price total of items selected
+	// let value = 0;
+	// var i;
+	// for (i = 0; i < basket.length; i++) {
+	//	 value = value + basket[i].price;
+	// }
 
 	return (
 		<div className="subtotal">
@@ -27,7 +29,7 @@ function Subtotal() {
 					</>
 				)}
 				decimalScale={2}
-				value={value}
+				value={getBasketTotal(basket)}
 				displayType={'text'}
 				thousandSeparator={true}
 				prefix={'$'}
