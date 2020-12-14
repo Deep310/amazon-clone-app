@@ -35,6 +35,10 @@
 	color: #111;
 }
 
+.product > button:hover {
+	cursor: pointer;
+}
+
 .product__info {
 	height: 100px;
 	margin-bottom: 15px;

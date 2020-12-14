@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Login.css';
+import { auth } from './firebase';
 
 function Login() {
+	const history = useHistory();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -10,13 +12,14 @@ function Login() {
 		e.preventDefault();
 
 		//firebase login here
+		auth
+			.signInWithEmailAndPassword(email, password)
+			.then((auth) => {
+				history.push('/');
+			})
+			.catch((err) => alert(err.message));
 	};
 
-	const register = (e) => {
-		e.preventDefault();
-
-		//firebase register account here
-	};
 	return (
 		<div className="login">
 			<Link to="/">
@@ -58,9 +61,12 @@ function Login() {
 					Internet-Based Ads Notice.
 				</p>
 
-				<button className="login__registerButton" onClick={register}>
-					Create your Amazon account
-				</button>
+				<p className="login__newUser">New to Amazon?</p>
+				<Link to="/register">
+					<button className="login__registerButton">
+						Create your Amazon account
+					</button>
+				</Link>
 			</div>
 		</div>
 	);
