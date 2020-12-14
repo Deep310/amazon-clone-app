@@ -34,5 +34,5 @@
 
 .goToTop:hover {
 	cursor: pointer;
-	font-weight: 500;
+	background-color: #5c6d80;
 }
