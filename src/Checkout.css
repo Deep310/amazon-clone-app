@@ -20,3 +20,22 @@
 	margin-left: 10px;
 	padding-left: 10px;
 }
+
+.checkout__emptyCart {
+	display: flex;
+}
+
+.checkout__emptyCartImg {
+	width: 350px;
+	object-fit: contain;
+	margin: 0 20px;
+	margin-top: 18px;
+}
+
+.checkout__emptyCartText {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: 50px;
+}
