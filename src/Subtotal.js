@@ -3,15 +3,18 @@ import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
 import { useStateValue } from './StateProvider';
 import './Subtotal.css';
+import { useHistory } from 'react-router-dom';
 
 function Subtotal() {
+	const history = useHistory();
 	const [{ basket, user }, dispatch] = useStateValue();
 
 	const handleClick = () => {
 		if (!user) {
 			alert('Please Sign In to proceed to checkout!');
+		} else {
+			history.push('/payment');
 		}
-		return;
 	};
 
 	// alternative way of counting price total of items selected

@@ -2,16 +2,19 @@ import React from 'react';
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
 
 function Header() {
+	const history = useHistory();
 	const [{ basket, user }, dispatch] = useStateValue();
 
 	const handleAuthentication = () => {
 		if (user) {
 			auth.signOut();
+			//push to homepage when signing out
+			history.push('/');
 		}
 	};
 	return (

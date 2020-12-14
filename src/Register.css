@@ -45,6 +45,10 @@
 	font-size: 12px;
 }
 
+.register__container a {
+	text-decoration: none;
+}
+
 .register__registerButton {
 	background-color: #f1c860;
 	border: 1px solid;

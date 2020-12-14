@@ -41,16 +41,20 @@ function Checkout() {
 										<p>Shop items</p>
 									</Link>
 									<div className="checkout__buttons">
-										<Link to="/login">
-											<button className="checkout__loginButton">
-												Sign in to your account
-											</button>
-										</Link>
-										<Link to="/register">
-											<button className="checkout__registerButton">
-												Sign up now
-											</button>
-										</Link>
+										{!user && (
+											<>
+												<Link to="/login">
+													<button className="checkout__loginButton">
+														Sign in to your account
+													</button>
+												</Link>
+												<Link to="/register">
+													<button className="checkout__registerButton">
+														Sign up now
+													</button>
+												</Link>
+											</>
+										)}
 									</div>
 								</div>
 							</div>

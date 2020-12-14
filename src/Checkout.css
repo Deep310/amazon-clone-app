@@ -24,6 +24,7 @@
 .checkout__emptyCart {
 	display: flex;
 	justify-content: space-around;
+	margin: 80px 0;
 }
 
 .checkout__emptyCartImg {
