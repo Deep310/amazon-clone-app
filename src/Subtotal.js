@@ -5,7 +5,14 @@ import { useStateValue } from './StateProvider';
 import './Subtotal.css';
 
 function Subtotal() {
-	const [{ basket }, dispatch] = useStateValue();
+	const [{ basket, user }, dispatch] = useStateValue();
+
+	const handleClick = () => {
+		if (!user) {
+			alert('Please Sign In to proceed to checkout!');
+		}
+		return;
+	};
 
 	// alternative way of counting price total of items selected
 	// let value = 0;
@@ -35,7 +42,7 @@ function Subtotal() {
 				prefix={'$'}
 			/>
 
-			<button>Proceed to Checkout</button>
+			<button onClick={handleClick}>Proceed to Checkout</button>
 		</div>
 	);
 }
