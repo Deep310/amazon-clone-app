@@ -130,6 +130,7 @@ function Payment() {
 									thousandSeparator={true}
 									prefix={'$'}
 								/>
+								<br />
 								<button disabled={disabled || processing || succeeded}>
 									<span>
 										{processing ? <p>Processing</p> : 'Buy Now'}
@@ -137,6 +138,12 @@ function Payment() {
 								</button>
 							</div>
 							{error && <div>{error}</div>}
+							<br />
+							<p>
+								Note: Please do not enter your real card details. The
+								products displayed are not real. But you can check out
+								the payment processing by entering dummy card details.{' '}
+							</p>
 						</form>
 					</div>
 				</div>

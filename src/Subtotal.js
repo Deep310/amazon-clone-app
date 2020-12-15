@@ -12,8 +12,12 @@ function Subtotal() {
 	const handleClick = () => {
 		if (!user) {
 			alert('Please Sign In to proceed to checkout!');
-		} else {
-			history.push('/payment');
+		} else if (user) {
+			if (!basket.length) {
+				alert('Please add items in your cart to proceed to checkout!');
+			} else {
+				history.push('/payment');
+			}
 		}
 	};
 
